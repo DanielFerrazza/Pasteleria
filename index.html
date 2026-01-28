@@ -10,6 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
+      --cream: #fbf6ee;
+      --latte: #f3e5d3;
+      --cocoa: #3b2418;
+      --caramel: #bf7b45;
+      --rose: #f0c7b6;
+      --sage: #d3cbbf;
+      --honey: #f6d28b;
+      --plum: #6b3b3b;
+      --ink: #2b201a;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(35, 23, 17, 0.14);
+      --shadow-soft: 0 12px 30px rgba(35, 23, 17, 0.08);
+      --gradient: linear-gradient(135deg, #f6e9d7 0%, #f9dfc8 45%, #f2c6b2 100%);
       --cream: #f7f1e7;
       --latte: #f1e0c6;
       --cocoa: #4b2e1e;
@@ -34,6 +47,15 @@
       line-height: 1.6;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(246, 210, 139, 0.2), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
     img {
       max-width: 100%;
       display: block;
@@ -55,6 +77,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(251, 246, 238, 0.92);
       background: rgba(247, 241, 231, 0.9);
       backdrop-filter: blur(10px);
     }
@@ -79,6 +102,12 @@
       font-size: 0.95rem;
     }
 
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .nav-links a {
       padding-bottom: 4px;
       border-bottom: 2px solid transparent;
@@ -101,6 +130,7 @@
     }
 
     .badge {
+      background: rgba(240, 199, 182, 0.8);
       background: var(--rose);
       color: var(--cocoa);
       padding: 6px 14px;
@@ -172,8 +202,33 @@
       gap: 16px;
     }
 
+    .hero-highlights {
+      display: grid;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .hero-highlights span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--plum);
+    }
+
+    .hero-highlights span::before {
+      content: "✦";
+      color: var(--caramel);
+    }
+
     .section {
       padding: 70px 0;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
     }
 
     .about {
@@ -204,6 +259,7 @@
       background: var(--white);
       padding: 18px;
       border-radius: 20px;
+      box-shadow: var(--shadow-soft);
       box-shadow: var(--shadow);
       display: grid;
       gap: 12px;
@@ -232,10 +288,22 @@
       padding: 16px;
       border-radius: 16px;
       background: var(--white);
+      box-shadow: var(--shadow-soft);
       box-shadow: var(--shadow);
       display: grid;
       gap: 8px;
       border-left: 4px solid var(--caramel);
+    }
+
+    .cta-banner {
+      background: var(--gradient);
+      padding: 30px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+      align-items: center;
+      color: var(--cocoa);
     }
 
     .reviews {
@@ -260,6 +328,7 @@
       background: var(--white);
       padding: 20px;
       border-radius: 20px;
+      box-shadow: var(--shadow-soft);
       box-shadow: var(--shadow);
       display: grid;
       gap: 10px;
@@ -287,6 +356,19 @@
       box-shadow: var(--shadow);
       display: grid;
       gap: 16px;
+    }
+
+    .gift-box {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 14px;
+    }
+
+    .gift-box strong {
+      color: var(--plum);
     }
 
     .contact-details {
@@ -327,6 +409,10 @@
         padding-top: 90px;
       }
 
+      .cta-banner {
+        grid-template-columns: 2fr 1fr;
+      }
+
       .about {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -337,6 +423,12 @@
 
       .contact-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
       }
     }
   </style>
@@ -351,6 +443,9 @@
         <a href="#proceso">Cómo pedir</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#contacto">Encargar</a>
+      </div>
     </div>
   </header>
 
@@ -358,11 +453,18 @@
     <section class="hero container" id="inicio">
       <div class="hero-content fade-in">
         <span class="badge">Pastelería artesanal premium · Madrid</span>
+        <h1>Pastelería de autor para celebrar con sabor, belleza y cariño.</h1>
+        <p>En Dulce Madrileño creamos postres artesanales con ingredientes reales y una estética cuidada. Cada encargo nace en nuestro obrador en pequeños lotes, pensado para emocionar desde el primer vistazo.</p>
         <h1>Postres que abrazan, creados a mano con alma y sabor de barrio.</h1>
         <p>En Dulce Madrileño transformamos ingredientes reales en momentos memorables. Cada pieza sale de nuestro obrador en pequeños lotes para que tu celebración tenga el sabor auténtico que merece.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Encargar ahora</a>
           <a class="btn btn-secondary" href="#productos">Ver carta</a>
+        </div>
+        <div class="hero-highlights">
+          <span>Entregas en Madrid en 48-72h</span>
+          <span>Personalizaciones para eventos y regalos</span>
+          <span>Recetario propio, sin bases industriales</span>
         </div>
         <p><strong>Entregas personalizadas</strong> para eventos, regalos y reuniones íntimas en Madrid.</p>
       </div>
@@ -379,6 +481,8 @@
     <section class="section container about" id="historia">
       <div class="about-card fade-in">
         <h2>La historia detrás del obrador</h2>
+        <p>Soy Marta García, madrileña y chef formada en escuela culinaria profesional. Tras años en cocina creativa, elegí la pastelería porque es el lenguaje que mejor cuenta emociones.</p>
+        <p>Trabajo con mantequilla, chocolates con origen y fruta de temporada para que cada postre tenga identidad propia. Nada de industrial: solo técnica, tiempo y manos que aman el oficio.</p>
         <p>Soy Marta García, madrileña y chef formada en escuela culinaria profesional. Tras años de trabajo en cocina, encontré en la pastelería el lugar donde la técnica y la emoción se encuentran.</p>
         <p>Hoy preparo cada receta a mano, en pequeños lotes y con productos de temporada. Mi misión es que cada bocado se sienta como un regalo: delicado, cálido y auténtico.</p>
         <p><strong>Madrid es mi inspiración</strong>, sus mercados mi despensa y su gente mi mejor jurado.</p>
@@ -389,6 +493,7 @@
     </section>
 
     <section class="section container products" id="productos">
+      <div class="section-title fade-in">
       <div class="fade-in">
         <h2>La carta que despierta antojos</h2>
         <p>Sabores intensos, texturas suaves y ese toque artesanal que se nota en cada detalle.</p>
@@ -422,6 +527,7 @@
     </section>
 
     <section class="section container">
+      <div class="section-title fade-in">
       <div class="fade-in">
         <h2>Lo que nos hace diferentes</h2>
         <p>Pastelería de autor con alma artesanal y el corazón puesto en cada detalle.</p>
@@ -446,6 +552,21 @@
       </div>
     </section>
 
+    <section class="section container">
+      <div class="cta-banner fade-in">
+        <div>
+          <h2>Regalos y celebraciones con firma artesana</h2>
+          <p>Desde cumpleaños íntimos hasta eventos corporativos cálidos: diseñamos cajas y mesas dulces con estética elegante, mensaje personalizado y empaque premium.</p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="#contacto">Cotizar evento</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="container">
+        <div class="section-title fade-in">
     <section class="section reviews">
       <div class="container">
         <div class="fade-in">
@@ -470,6 +591,7 @@
     </section>
 
     <section class="section container" id="proceso">
+      <div class="section-title fade-in">
       <div class="fade-in">
         <h2>Así de fácil es encargar</h2>
         <p>Un proceso claro para que solo te preocupes de disfrutar.</p>
@@ -499,6 +621,10 @@
           <h2>Hablemos de tu próximo antojo</h2>
           <p>Reserva tu pedido con 48 horas de antelación. Respondo personalmente y te ayudo a elegir el postre ideal.</p>
           <p><strong>Horario de atención:</strong> lunes a sábado · 10:00 - 19:00</p>
+          <div class="gift-box">
+            <p><strong>Tip de la chef:</strong> Los viernes son ideales para asegurar el postre del fin de semana. Agenda con tiempo y evita quedarte sin tu sabor favorito.</p>
+            <p>Pregúntame por ediciones limitadas y sabores de temporada.</p>
+          </div>
         </div>
         <div class="contact-card fade-in">
           <h3>Contacto directo</h3>
@@ -507,6 +633,7 @@
             <a href="mailto:hola@dulcemadrileno.es">hola@dulcemadrileno.es</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram · @dulcemadrileno</a>
           </div>
+          <p>También puedes solicitar catálogo completo, precios y propuestas de mesa dulce por mensaje.</p>
           <p>También puedes solicitar catálogo completo y precios actualizados por mensaje.</p>
         </div>
       </div>

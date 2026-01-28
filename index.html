@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dulce Madrileño | Pastelería Artesanal en Madrid</title>
+  <meta name="description" content="Pastelería artesanal premium en Madrid. Cheesecakes, cookies, brownies y postres de temporada hechos a mano con ingredientes reales. Encarga por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #fbf6ee;
+      --latte: #f3e5d3;
+      --cocoa: #3b2418;
+      --caramel: #bf7b45;
+      --rose: #f0c7b6;
+      --sage: #d3cbbf;
+      --honey: #f6d28b;
+      --plum: #6b3b3b;
+      --ink: #2b201a;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(35, 23, 17, 0.14);
+      --shadow-soft: 0 12px 30px rgba(35, 23, 17, 0.08);
+      --gradient: linear-gradient(135deg, #f6e9d7 0%, #f9dfc8 45%, #f2c6b2 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(246, 210, 139, 0.2), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(251, 246, 238, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cocoa);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: border 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--caramel);
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+      display: grid;
+      gap: 32px;
+    }
+
+    .hero-content {
+      display: grid;
+      gap: 20px;
+    }
+
+    .badge {
+      background: rgba(240, 199, 182, 0.8);
+      color: var(--cocoa);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      display: inline-flex;
+      width: fit-content;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      color: var(--cocoa);
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      color: var(--cocoa);
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #3b312a;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--cocoa);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border-color: var(--cocoa);
+      color: var(--cocoa);
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-highlights {
+      display: grid;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .hero-highlights span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--plum);
+    }
+
+    .hero-highlights span::before {
+      content: "✦";
+      color: var(--caramel);
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .about {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .products .grid {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .product-card {
+      background: var(--white);
+      padding: 18px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--caramel);
+      font-weight: 600;
+    }
+
+    .pill-list {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .pill {
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 8px;
+      border-left: 4px solid var(--caramel);
+    }
+
+    .cta-banner {
+      background: var(--gradient);
+      padding: 30px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+      align-items: center;
+      color: var(--cocoa);
+    }
+
+    .reviews {
+      background: var(--latte);
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 24px;
+    }
+
+    .step {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 10px;
+    }
+
+    .step span {
+      font-weight: 700;
+      color: var(--caramel);
+    }
+
+    .contact {
+      background: var(--rose);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: var(--white);
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+    }
+
+    .gift-box {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 14px;
+    }
+
+    .gift-box strong {
+      color: var(--plum);
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 10px;
+      font-weight: 500;
+    }
+
+    .contact-details a {
+      color: var(--cocoa);
+    }
+
+    footer {
+      background: var(--cocoa);
+      color: var(--cream);
+      padding: 40px 0;
+    }
+
+    footer p {
+      color: var(--cream);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        padding-top: 90px;
+      }
+
+      .cta-banner {
+        grid-template-columns: 2fr 1fr;
+      }
+
+      .about {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">Dulce Madrileño</a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="#historia">Historia</a>
+        <a href="#productos">Carta</a>
+        <a href="#proceso">Cómo pedir</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#contacto">Encargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="inicio">
+      <div class="hero-content fade-in">
+        <span class="badge">Pastelería artesanal premium · Madrid</span>
+        <h1>Pastelería de autor para celebrar con sabor, belleza y cariño.</h1>
+        <p>En Dulce Madrileño creamos postres artesanales con ingredientes reales y una estética cuidada. Cada encargo nace en nuestro obrador en pequeños lotes, pensado para emocionar desde el primer vistazo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Encargar ahora</a>
+          <a class="btn btn-secondary" href="#productos">Ver carta</a>
+        </div>
+        <div class="hero-highlights">
+          <span>Entregas en Madrid en 48-72h</span>
+          <span>Personalizaciones para eventos y regalos</span>
+          <span>Recetario propio, sin bases industriales</span>
+        </div>
+      </div>
+      <div class="hero-card fade-in">
+        <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=900&q=80" alt="Cheesecake artesanal con frutos rojos" />
+        <div>
+          <p class="product-tag">Favorito del mes</p>
+          <h3>Cheesecake de queso crema y frambuesa</h3>
+          <p>Textura sedosa, base crujiente de galleta y un toque fresco que enamora desde la primera cucharada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container about" id="historia">
+      <div class="about-card fade-in">
+        <h2>La historia detrás del obrador</h2>
+        <p>Soy Marta García, madrileña y chef formada en escuela culinaria profesional. Tras años en cocina creativa, elegí la pastelería porque es el lenguaje que mejor cuenta emociones.</p>
+        <p>Trabajo con mantequilla, chocolates con origen y fruta de temporada para que cada postre tenga identidad propia. Nada de industrial: solo técnica, tiempo y manos que aman el oficio.</p>
+        <p><strong>Madrid es mi inspiración</strong>, sus mercados mi despensa y su gente mi mejor jurado.</p>
+      </div>
+      <div class="fade-in">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=900&q=80" alt="Chef preparando postres artesanales" />
+      </div>
+    </section>
+
+    <section class="section container products" id="productos">
+      <div class="section-title fade-in">
+        <h2>La carta que despierta antojos</h2>
+        <p>Sabores intensos, texturas suaves y ese toque artesanal que se nota en cada detalle.</p>
+      </div>
+      <div class="grid">
+        <article class="product-card fade-in">
+          <img src="https://images.unsplash.com/photo-1511910849309-0fcdf915f7a7?auto=format&fit=crop&w=900&q=80" alt="Cheesecake artesanal" />
+          <p class="product-tag">Cheesecakes</p>
+          <h3>Cremosos y equilibrados</h3>
+          <p>Desde clásicos de vainilla hasta combinaciones con cítricos y frutos rojos.</p>
+        </article>
+        <article class="product-card fade-in">
+          <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=80" alt="Cookies artesanales" />
+          <p class="product-tag">Cookies</p>
+          <h3>Recién horneadas</h3>
+          <p>Con mantequilla europea, chocolate intenso y un interior suave irresistible.</p>
+        </article>
+        <article class="product-card fade-in">
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=80" alt="Brownies de chocolate" />
+          <p class="product-tag">Brownies</p>
+          <h3>Chocolatosos y jugosos</h3>
+          <p>Cacao puro, nueces tostadas y un acabado brillante que encanta.</p>
+        </article>
+        <article class="product-card fade-in">
+          <img src="https://images.unsplash.com/photo-1451029503659-77c37a8048d4?auto=format&fit=crop&w=900&q=80" alt="Postres de temporada" />
+          <p class="product-tag">Postres de temporada</p>
+          <h3>Ediciones limitadas</h3>
+          <p>Creaciones especiales con ingredientes de mercado y sabores de estación.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-title fade-in">
+        <h2>Lo que nos hace diferentes</h2>
+        <p>Pastelería de autor con alma artesanal y el corazón puesto en cada detalle.</p>
+      </div>
+      <div class="pill-list">
+        <div class="pill fade-in">
+          <h3>Hecho a mano</h3>
+          <p>Sin prisas ni cadenas, cada lote se prepara de forma artesanal.</p>
+        </div>
+        <div class="pill fade-in">
+          <h3>Ingredientes reales</h3>
+          <p>Mantequilla, chocolate y fruta seleccionada. Sin atajos.</p>
+        </div>
+        <div class="pill fade-in">
+          <h3>Cero industrial</h3>
+          <p>Recetas propias, sin bases prefabricadas ni conservantes artificiales.</p>
+        </div>
+        <div class="pill fade-in">
+          <h3>Hecho en Madrid</h3>
+          <p>Obrador local con entregas cuidadas en toda la ciudad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="cta-banner fade-in">
+        <div>
+          <h2>Regalos y celebraciones con firma artesana</h2>
+          <p>Desde cumpleaños íntimos hasta eventos corporativos cálidos: diseñamos cajas y mesas dulces con estética elegante, mensaje personalizado y empaque premium.</p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="#contacto">Cotizar evento</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Dicen de nosotras</h2>
+          <p>Clientes que ya celebran con Dulce Madrileño.</p>
+        </div>
+        <div class="grid">
+          <article class="review-card fade-in">
+            <p>"El cheesecake de limón fue el protagonista de nuestro cumpleaños. Sabor limpio y textura perfecta."</p>
+            <strong>- Laura M., Chamberí</strong>
+          </article>
+          <article class="review-card fade-in">
+            <p>"Pedí una caja de cookies para regalar y me pidieron la receta. Todo un éxito."</p>
+            <strong>- David S., Retiro</strong>
+          </article>
+          <article class="review-card fade-in">
+            <p>"Se nota la mano profesional. Los brownies llegaron impecables y deliciosos."</p>
+            <strong>- Ana P., Salamanca</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="proceso">
+      <div class="section-title fade-in">
+        <h2>Así de fácil es encargar</h2>
+        <p>Un proceso claro para que solo te preocupes de disfrutar.</p>
+      </div>
+      <div class="steps">
+        <div class="step fade-in">
+          <span>01</span>
+          <h3>Elige tu postre</h3>
+          <p>Cuéntanos el sabor, el tamaño y la fecha. Te asesoramos según tu evento.</p>
+        </div>
+        <div class="step fade-in">
+          <span>02</span>
+          <h3>Personalizamos</h3>
+          <p>Ajustamos detalles, mensajes y acabados para que todo se sienta especial.</p>
+        </div>
+        <div class="step fade-in">
+          <span>03</span>
+          <h3>Entregamos en Madrid</h3>
+          <p>Listo para abrir, compartir y celebrar con quienes más quieres.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container contact-grid">
+        <div class="fade-in">
+          <h2>Hablemos de tu próximo antojo</h2>
+          <p>Reserva tu pedido con 48 horas de antelación. Respondo personalmente y te ayudo a elegir el postre ideal.</p>
+          <p><strong>Horario de atención:</strong> lunes a sábado · 10:00 - 19:00</p>
+          <div class="gift-box">
+            <p><strong>Tip de la chef:</strong> Los viernes son ideales para asegurar el postre del fin de semana. Agenda con tiempo y evita quedarte sin tu sabor favorito.</p>
+            <p>Pregúntame por ediciones limitadas y sabores de temporada.</p>
+          </div>
+        </div>
+        <div class="contact-card fade-in">
+          <h3>Contacto directo</h3>
+          <div class="contact-details">
+            <a class="btn btn-primary" href="https://wa.me/34123456789" target="_blank" rel="noopener noreferrer">WhatsApp: +34 123 456 789</a>
+            <a href="mailto:hola@dulcemadrileno.es">hola@dulcemadrileno.es</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram · @dulcemadrileno</a>
+          </div>
+          <p>También puedes solicitar catálogo completo, precios y propuestas de mesa dulce por mensaje.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Dulce Madrileño</h3>
+      <p>Pastelería artesanal premium para celebrar lo cotidiano.</p>
+      <p><em>Slogan:</em> “Hecho en Madrid, horneado con cariño.”</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

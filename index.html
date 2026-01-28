@@ -23,6 +23,15 @@
       --shadow: 0 18px 45px rgba(35, 23, 17, 0.14);
       --shadow-soft: 0 12px 30px rgba(35, 23, 17, 0.08);
       --gradient: linear-gradient(135deg, #f6e9d7 0%, #f9dfc8 45%, #f2c6b2 100%);
+      --cream: #f7f1e7;
+      --latte: #f1e0c6;
+      --cocoa: #4b2e1e;
+      --caramel: #b87945;
+      --rose: #e7c3b0;
+      --sage: #c6c2b3;
+      --ink: #2d221c;
+      --white: #ffffff;
+      --shadow: 0 16px 40px rgba(35, 23, 17, 0.12);
     }
 
     * {
@@ -69,6 +78,7 @@
       top: 0;
       z-index: 10;
       background: rgba(251, 246, 238, 0.92);
+      background: rgba(247, 241, 231, 0.9);
       backdrop-filter: blur(10px);
     }
 
@@ -121,6 +131,7 @@
 
     .badge {
       background: rgba(240, 199, 182, 0.8);
+      background: var(--rose);
       color: var(--cocoa);
       padding: 6px 14px;
       border-radius: 999px;
@@ -249,6 +260,7 @@
       padding: 18px;
       border-radius: 20px;
       box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       display: grid;
       gap: 12px;
       transition: transform 0.3s ease;
@@ -277,6 +289,7 @@
       border-radius: 16px;
       background: var(--white);
       box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       display: grid;
       gap: 8px;
       border-left: 4px solid var(--caramel);
@@ -316,6 +329,7 @@
       padding: 20px;
       border-radius: 20px;
       box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       display: grid;
       gap: 10px;
     }
@@ -441,6 +455,8 @@
         <span class="badge">Pastelería artesanal premium · Madrid</span>
         <h1>Pastelería de autor para celebrar con sabor, belleza y cariño.</h1>
         <p>En Dulce Madrileño creamos postres artesanales con ingredientes reales y una estética cuidada. Cada encargo nace en nuestro obrador en pequeños lotes, pensado para emocionar desde el primer vistazo.</p>
+        <h1>Postres que abrazan, creados a mano con alma y sabor de barrio.</h1>
+        <p>En Dulce Madrileño transformamos ingredientes reales en momentos memorables. Cada pieza sale de nuestro obrador en pequeños lotes para que tu celebración tenga el sabor auténtico que merece.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Encargar ahora</a>
           <a class="btn btn-secondary" href="#productos">Ver carta</a>
@@ -450,6 +466,7 @@
           <span>Personalizaciones para eventos y regalos</span>
           <span>Recetario propio, sin bases industriales</span>
         </div>
+        <p><strong>Entregas personalizadas</strong> para eventos, regalos y reuniones íntimas en Madrid.</p>
       </div>
       <div class="hero-card fade-in">
         <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=900&q=80" alt="Cheesecake artesanal con frutos rojos" />
@@ -466,6 +483,8 @@
         <h2>La historia detrás del obrador</h2>
         <p>Soy Marta García, madrileña y chef formada en escuela culinaria profesional. Tras años en cocina creativa, elegí la pastelería porque es el lenguaje que mejor cuenta emociones.</p>
         <p>Trabajo con mantequilla, chocolates con origen y fruta de temporada para que cada postre tenga identidad propia. Nada de industrial: solo técnica, tiempo y manos que aman el oficio.</p>
+        <p>Soy Marta García, madrileña y chef formada en escuela culinaria profesional. Tras años de trabajo en cocina, encontré en la pastelería el lugar donde la técnica y la emoción se encuentran.</p>
+        <p>Hoy preparo cada receta a mano, en pequeños lotes y con productos de temporada. Mi misión es que cada bocado se sienta como un regalo: delicado, cálido y auténtico.</p>
         <p><strong>Madrid es mi inspiración</strong>, sus mercados mi despensa y su gente mi mejor jurado.</p>
       </div>
       <div class="fade-in">
@@ -475,6 +494,7 @@
 
     <section class="section container products" id="productos">
       <div class="section-title fade-in">
+      <div class="fade-in">
         <h2>La carta que despierta antojos</h2>
         <p>Sabores intensos, texturas suaves y ese toque artesanal que se nota en cada detalle.</p>
       </div>
@@ -508,6 +528,7 @@
 
     <section class="section container">
       <div class="section-title fade-in">
+      <div class="fade-in">
         <h2>Lo que nos hace diferentes</h2>
         <p>Pastelería de autor con alma artesanal y el corazón puesto en cada detalle.</p>
       </div>
@@ -546,6 +567,9 @@
     <section class="section reviews">
       <div class="container">
         <div class="section-title fade-in">
+    <section class="section reviews">
+      <div class="container">
+        <div class="fade-in">
           <h2>Dicen de nosotras</h2>
           <p>Clientes que ya celebran con Dulce Madrileño.</p>
         </div>
@@ -568,6 +592,7 @@
 
     <section class="section container" id="proceso">
       <div class="section-title fade-in">
+      <div class="fade-in">
         <h2>Así de fácil es encargar</h2>
         <p>Un proceso claro para que solo te preocupes de disfrutar.</p>
       </div>
@@ -609,6 +634,7 @@
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram · @dulcemadrileno</a>
           </div>
           <p>También puedes solicitar catálogo completo, precios y propuestas de mesa dulce por mensaje.</p>
+          <p>También puedes solicitar catálogo completo y precios actualizados por mensaje.</p>
         </div>
       </div>
     </section>
